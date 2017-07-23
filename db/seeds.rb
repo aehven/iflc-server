@@ -13,20 +13,20 @@
               role: "admin"
               )
 
-  Account.create(name: "Account #{i+1}", street: "40#{i+1} Jackson St", city: "Golden", zip: 80403, phone: "303-763-000#{i+1}", kind: "Pediatrician")
+  Cee.create(name: "Cee #{i+1}", form: 100, source: 100)
 end
 
-Account.all.each do |account|
+Cee.all.each do |cee|
   3.times do |i|
-    Contact.create(first_name: "f#{i+1}_a#{account.id}",
-    last_name: "l#{i+1}_a#{account.id}", account: account)
+    Flavor.create(name: "f#{i+1}_a#{cee.id}",
+    color: "l#{i+1}_a#{cee.id}", account: cee)
 
-    Activity.create(date: DateTime.now-i.hours, text: "activity #{i+1} for account #{account.name}", account: account)
+    Note.create(date: DateTime.now-i.hours, text: "note #{i+1} for cee #{cee.name}", cee: cee)
   end
 end
 
 User.all.each do |user|
   3.times do |i|
-    user.favorites << Favorite.new(favoritable: Account.find(i+1))
+    user.favorites << Favorite.new(favoritable: Cee.find(i+1))
   end
 end

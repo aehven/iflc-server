@@ -11,10 +11,10 @@ class Ability
 
       when "regular"
         can [:read, :update], User, id: user.id
-        can :manage, Account
-        can :manage, Contact
+        can :manage, Cee
+        can :manage, Flavor
         can :manage, Favorite
-        can :manage, Activity
+        can :manage, Note
     end
   end
 
