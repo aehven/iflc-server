@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
   resources :users
-  resources :accounts
-  resources :contacts
+  resources :cees
+  resources :flavors
   resources :favorites
-  resources :activities
+  resources :notes
 
   match "*path", to: redirect('/'), via: :all
 end
