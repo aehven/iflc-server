@@ -10,54 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505123131) do
+ActiveRecord::Schema.define(version: 20170208002229) do
 
-  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "cees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "name"
-    t.string  "phone"
-    t.string  "fax"
-    t.string  "email"
-    t.string  "website"
-    t.string  "street"
-    t.string  "city"
-    t.string  "state"
-    t.string  "zip"
-    t.integer "kind"
-    t.string  "om"
-    t.string  "fd1"
-    t.string  "fd2"
-    t.string  "rc"
-    t.integer "referrer"
-  end
-
-  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "account_id"
-    t.datetime "date"
-    t.text     "text",       limit: 65535
-    t.index ["account_id"], name: "index_activities_on_account_id", using: :btree
-  end
-
-  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "account_id"
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "phone"
-    t.string  "email"
-    t.string  "street"
-    t.string  "city"
-    t.string  "zip"
-    t.integer "kind"
-    t.string  "state"
-    t.string  "ma"
-    t.boolean "sunday"
-    t.boolean "monday"
-    t.boolean "tuesday"
-    t.boolean "wednesday"
-    t.boolean "thursday"
-    t.boolean "friday"
-    t.boolean "saturday"
-    t.string  "cellphone"
-    t.index ["account_id"], name: "index_contacts_on_account_id", using: :btree
+    t.integer "form"
+    t.integer "source"
   end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -68,6 +26,20 @@ ActiveRecord::Schema.define(version: 20170505123131) do
     t.index ["favoritable_id"], name: "index_favorites_on_favoritable_id", using: :btree
     t.index ["favoritable_type"], name: "index_favorites_on_favoritable_type", using: :btree
     t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
+  end
+
+  create_table "flavors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "cee_id"
+    t.string  "name"
+    t.string  "color"
+    t.index ["cee_id"], name: "index_flavors_on_cee_id", using: :btree
+  end
+
+  create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "cee_id"
+    t.datetime "date"
+    t.text     "text",   limit: 65535
+    t.index ["cee_id"], name: "index_notes_on_cee_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -103,7 +75,7 @@ ActiveRecord::Schema.define(version: 20170505123131) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   end
 
-  add_foreign_key "activities", "accounts"
-  add_foreign_key "contacts", "accounts"
   add_foreign_key "favorites", "users"
+  add_foreign_key "flavors", "cees"
+  add_foreign_key "notes", "cees"
 end

@@ -13,15 +13,31 @@
               role: "admin"
               )
 
-  Cee.create(name: "Cee #{i+1}", form: 100, source: 100)
 end
+
+coffee = Cee.create(name: "Coffee", form: 'liquid', source: 'vegetable')
+chocolate = Cee.create(name: "Chocolate", form: 'solid', source: 'vegetable')
+cheese = Cee.create(name: "Cheese", form: 'mush', source: 'animal')
+cervesa = Cee.create(name: "Cervesa", form: 'liquid', source: 'vegetable')
+
+coffee.flavors << Flavor.create(name: 'Dark Roast', color: 'Brown')
+coffee.flavors << Flavor.create(name: 'Medium Roast', color: 'Light Brown')
+
+chocolate.flavors << Flavor.create(name: 'Dark', color: 'Brown')
+chocolate.flavors << Flavor.create(name: 'Milik', color: 'Light Brown')
+
+cheese.flavors << Flavor.create(name: 'Cream', color: 'White')
+cheese.flavors << Flavor.create(name: 'Brie', color: 'White')
+cheese.flavors << Flavor.create(name: 'Port', color: 'Cream')
+
+cervesa.flavors << Flavor.create(name: 'Stout', color: 'Black')
+cervesa.flavors << Flavor.create(name: 'English Bitter', color: 'Tan')
+cervesa.flavors << Flavor.create(name: 'Lager', color: 'Light Brown')
+
 
 Cee.all.each do |cee|
   3.times do |i|
-    Flavor.create(name: "f#{i+1}_a#{cee.id}",
-    color: "l#{i+1}_a#{cee.id}", account: cee)
-
-    Note.create(date: DateTime.now-i.hours, text: "note #{i+1} for cee #{cee.name}", cee: cee)
+    Note.create(date: DateTime.now-i.hours, text: "note #{i+1} for #{cee.name}", cee: cee)
   end
 end
 

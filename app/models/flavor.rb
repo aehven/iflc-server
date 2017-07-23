@@ -15,7 +15,7 @@ class Flavor < ApplicationRecord
   # http://stackoverflow.com/a/21818014
   has_many :favorites, as: :favoritable
 
-  default_scope {order(last_name: :asc).order(first_name: :asc)}
+  default_scope {order(name: :asc)}
 
   scope :search, -> term {
     where("name like ? or color like",

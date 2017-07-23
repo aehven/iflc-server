@@ -18,7 +18,7 @@ class Cee < ApplicationRecord
 
   enum source: {
     animal: 100,
-    vegitable: 200,
+    vegetable: 200,
     mineral: 300
   }, _prefix: true
   
