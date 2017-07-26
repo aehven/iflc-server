@@ -1,4 +1,4 @@
-class ActivitySerializer < ActiveModel::Serializer
+class NoteSerializer < ActiveModel::Serializer
   attributes  :id,
               :cee_id,
               :date,

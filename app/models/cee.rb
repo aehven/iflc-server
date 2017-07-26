@@ -1,6 +1,6 @@
 require 'csv'
 
-class AccountSerializer < ActiveModel::Serializer
+class CeeSerializer < ActiveModel::Serializer
   attributes :id,
              :name,
              :form,
@@ -21,7 +21,7 @@ class Cee < ApplicationRecord
     vegetable: 200,
     mineral: 300
   }, _prefix: true
-  
+
   has_many :flavors, dependent: :destroy
   has_many :notes, dependent: :destroy
 

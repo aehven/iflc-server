@@ -1,4 +1,4 @@
-class ContactSerializer < ActiveModel::Serializer
+class FlavorSerializer < ActiveModel::Serializer
   attributes  :id,
               :name,
               :color,
