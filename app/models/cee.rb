@@ -3,13 +3,13 @@ require 'csv'
 class CeeSerializer < ActiveModel::Serializer
   attributes :id,
              :name,
-             :form,
+             :state,
              :source
 end
 
 class Cee < ApplicationRecord
 
-  enum form: {
+  enum state: {
     gas: 100,
     liquid: 200,
     mush: 300,
@@ -31,21 +31,21 @@ class Cee < ApplicationRecord
   default_scope {order(name: :asc)}
 
   scope :search, -> term {
-    where("name like ? or form like ? or source like ?",
+    where("name like ? or state like ? or source like ?",
     "%#{term}%", "%#{term}%", "%#{term}%")
   }
 
   def self.to_csv(options = {})
     columns = [
       'name',
-      'form',
+      'state',
       'source'
     ]
 
     CSV.generate(options) do |csv|
       header = [
         'Name',
-        'Form',
+        'State',
         'Source'
       ]
 
@@ -54,7 +54,7 @@ class Cee < ApplicationRecord
       all.each do |account|
         row = []
         row += [account.name]
-        row += [account.form]
+        row += [account.state]
         row += [account.source]
 
         csv.add_row(row)
