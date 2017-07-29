@@ -37,7 +37,7 @@ CREATE TABLE `ar_internal_metadata` (
 
 LOCK TABLES `ar_internal_metadata` WRITE;
 /*!40000 ALTER TABLE `ar_internal_metadata` DISABLE KEYS */;
-INSERT INTO `ar_internal_metadata` VALUES ('environment','development','2017-07-29 21:31:31','2017-07-29 21:31:31');
+INSERT INTO `ar_internal_metadata` VALUES ('environment','development','2017-07-29 22:40:21','2017-07-29 22:40:21');
 /*!40000 ALTER TABLE `ar_internal_metadata` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +54,7 @@ CREATE TABLE `cees` (
   `state` int(11) DEFAULT NULL,
   `source` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `cees` (
 
 LOCK TABLES `cees` WRITE;
 /*!40000 ALTER TABLE `cees` DISABLE KEYS */;
-INSERT INTO `cees` VALUES (1,'Coffee',200,200),(2,'Chocolate',400,200),(3,'Cheese',300,100),(4,'Cervesa',200,200);
+INSERT INTO `cees` VALUES (1,'Coffee',200,200),(2,'Chocolate',400,200),(3,'Cheese',300,100),(4,'Cervesa',200,200),(5,'Cake',400,100);
 /*!40000 ALTER TABLE `cees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +113,7 @@ CREATE TABLE `flavors` (
   PRIMARY KEY (`id`),
   KEY `index_flavors_on_cee_id` (`cee_id`),
   CONSTRAINT `fk_rails_666b79ba13` FOREIGN KEY (`cee_id`) REFERENCES `cees` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,7 @@ CREATE TABLE `flavors` (
 
 LOCK TABLES `flavors` WRITE;
 /*!40000 ALTER TABLE `flavors` DISABLE KEYS */;
-INSERT INTO `flavors` VALUES (1,1,'Dark Roast','Brown'),(2,1,'Medium Roast','Light Brown'),(3,2,'Dark','Brown'),(4,2,'Milik','Light Brown'),(5,3,'Cream','White'),(6,3,'Brie','White'),(7,3,'Port','Cream'),(8,4,'Stout','Black'),(9,4,'English Bitter','Tan'),(10,4,'Lager','Light Brown');
+INSERT INTO `flavors` VALUES (1,1,'Dark Roast','Brown'),(2,1,'Medium Roast','Light Brown'),(3,2,'Dark','Brown'),(4,2,'Milik','Light Brown'),(5,3,'Cream','White'),(6,3,'Brie','White'),(7,3,'Port','Cream'),(8,4,'Stout','Black'),(9,4,'English Bitter','Tan'),(10,4,'Lager','Light Brown'),(11,5,'Chocolate','Brown'),(12,5,'Lemon','Yellow'),(13,5,'Vanilla','White');
 /*!40000 ALTER TABLE `flavors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +141,7 @@ CREATE TABLE `notes` (
   PRIMARY KEY (`id`),
   KEY `index_notes_on_cee_id` (`cee_id`),
   CONSTRAINT `fk_rails_2d2c54a020` FOREIGN KEY (`cee_id`) REFERENCES `cees` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE `notes` (
 
 LOCK TABLES `notes` WRITE;
 /*!40000 ALTER TABLE `notes` DISABLE KEYS */;
-INSERT INTO `notes` VALUES (1,4,'2017-07-29 21:31:51','note 1 for Cervesa'),(2,4,'2017-07-29 20:31:51','note 2 for Cervesa'),(3,4,'2017-07-29 19:31:51','note 3 for Cervesa'),(4,3,'2017-07-29 21:31:51','note 1 for Cheese'),(5,3,'2017-07-29 20:31:51','note 2 for Cheese'),(6,3,'2017-07-29 19:31:51','note 3 for Cheese'),(7,2,'2017-07-29 21:31:51','note 1 for Chocolate'),(8,2,'2017-07-29 20:31:51','note 2 for Chocolate'),(9,2,'2017-07-29 19:31:51','note 3 for Chocolate'),(10,1,'2017-07-29 21:31:51','note 1 for Coffee'),(11,1,'2017-07-29 20:31:51','note 2 for Coffee'),(12,1,'2017-07-29 19:31:51','note 3 for Coffee');
+INSERT INTO `notes` VALUES (1,5,'2017-07-29 22:40:38','note 1 for Cake'),(2,5,'2017-07-29 21:40:38','note 2 for Cake'),(3,5,'2017-07-29 20:40:38','note 3 for Cake'),(4,4,'2017-07-29 22:40:38','note 1 for Cervesa'),(5,4,'2017-07-29 21:40:38','note 2 for Cervesa'),(6,4,'2017-07-29 20:40:38','note 3 for Cervesa'),(7,3,'2017-07-29 22:40:38','note 1 for Cheese'),(8,3,'2017-07-29 21:40:38','note 2 for Cheese'),(9,3,'2017-07-29 20:40:38','note 3 for Cheese'),(10,2,'2017-07-29 22:40:38','note 1 for Chocolate'),(11,2,'2017-07-29 21:40:38','note 2 for Chocolate'),(12,2,'2017-07-29 20:40:38','note 3 for Chocolate'),(13,1,'2017-07-29 22:40:38','note 1 for Coffee'),(14,1,'2017-07-29 21:40:38','note 2 for Coffee'),(15,1,'2017-07-29 20:40:38','note 3 for Coffee');
 /*!40000 ALTER TABLE `notes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +226,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'email','r0@null.com','$2a$11$U4mvdf6YX56mwDa3R/80U.QBpFP2rM.82dSqRYRMoBZXrODCuBQUW',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r0@null.com','{}','2017-07-29 21:31:48','2017-07-29 21:31:48','rf0','rl0',100,NULL,NULL),(2,'email','a0@null.com','$2a$11$05qBQ0mcEandZWXvoJWlFOHFjSNKL.jazcud9C5MQruC08q.Wk/8O',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a0@null.com','{}','2017-07-29 21:31:48','2017-07-29 21:31:48','af0','al0',1000,NULL,NULL),(3,'email','r1@null.com','$2a$11$LWnQXHA5CTi3HD2dB3sMXOaFdprzWi.e8ahLSIWR48fvIc2VLmNDy',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r1@null.com','{}','2017-07-29 21:31:49','2017-07-29 21:31:49','rf1','rl1',100,NULL,NULL),(4,'email','a1@null.com','$2a$11$QrS6rnD29gumKNVdzXDZ/eCGS2QXZ9/w5/r3KjsMRo1GFoi5011te',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a1@null.com','{}','2017-07-29 21:31:49','2017-07-29 21:31:49','af1','al1',1000,NULL,NULL),(5,'email','r2@null.com','$2a$11$Lz32RW/CkzUm6Y6cux4Dlu5FMLpE7yNmqtMcHjJORUs65gcta1Msi',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r2@null.com','{}','2017-07-29 21:31:49','2017-07-29 21:31:49','rf2','rl2',100,NULL,NULL),(6,'email','a2@null.com','$2a$11$FMjQ2xKoClKsAnYm8r.sCOTIS4uPRI2VXI63VRoe8KiJK6IuEsdpu',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a2@null.com','{}','2017-07-29 21:31:49','2017-07-29 21:31:49','af2','al2',1000,NULL,NULL),(7,'email','r3@null.com','$2a$11$.IH3d7qFbz9by7bupjxQ2ebHQwG3sYIx7JTua6R.fG2R.bg7hXthy',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r3@null.com','{}','2017-07-29 21:31:49','2017-07-29 21:31:49','rf3','rl3',100,NULL,NULL),(8,'email','a3@null.com','$2a$11$uoPuouYsptJUtIOyGBo.4emFEe4Imbr36o445M6te3Hr.CHt9AH36',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a3@null.com','{}','2017-07-29 21:31:50','2017-07-29 21:31:50','af3','al3',1000,NULL,NULL),(9,'email','r4@null.com','$2a$11$fw1n1DtqZFB1GtRirLhsQ.m8uNI7UsND7ZhAl982YTPzi2hacrlNW',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r4@null.com','{}','2017-07-29 21:31:50','2017-07-29 21:31:50','rf4','rl4',100,NULL,NULL),(10,'email','a4@null.com','$2a$11$kS2puUDljvwNtkJEDctYe.tEIbCr5bQ4BVmAiSwg8XjBX9sH.YlK2',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a4@null.com','{}','2017-07-29 21:31:50','2017-07-29 21:31:50','af4','al4',1000,NULL,NULL);
+INSERT INTO `users` VALUES (1,'email','r0@null.com','$2a$11$4ecv6rg35JrkFpfYT2g6heyj5iOWY9BinZlOtkz5d2eY0sXcgHQq2',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r0@null.com','{}','2017-07-29 22:40:35','2017-07-29 22:40:35','rf0','rl0',100,NULL,NULL),(2,'email','a0@null.com','$2a$11$Q83dgkpe6ODHEA9vqwuX4ubAcB9IpqxYVuCxRCU/wvF9/Q.9OjjLe',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a0@null.com','{}','2017-07-29 22:40:35','2017-07-29 22:40:35','af0','al0',1000,NULL,NULL),(3,'email','r1@null.com','$2a$11$s2ueedGw.aoKFE0E8tHVCOXQuzMo6YsQndEDupoH8Y1RBePDq8lyi',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r1@null.com','{}','2017-07-29 22:40:36','2017-07-29 22:40:36','rf1','rl1',100,NULL,NULL),(4,'email','a1@null.com','$2a$11$zCc8NbIqeumf.WUNnBoCfeOeQRLQdSwDz9fZ4hsX2uOAd774uSxQS',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a1@null.com','{}','2017-07-29 22:40:36','2017-07-29 22:40:36','af1','al1',1000,NULL,NULL),(5,'email','r2@null.com','$2a$11$3zsqDZ3CWoEXlLuNSebg1.slnEvLEN6Ux6dNlKOFTsmDbcHbYxPEm',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r2@null.com','{}','2017-07-29 22:40:36','2017-07-29 22:40:36','rf2','rl2',100,NULL,NULL),(6,'email','a2@null.com','$2a$11$4UkrGRuWl1TXIa6orAkUnezpNcd/oQxSBSZW.vYgdm7oFsacbBDRe',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a2@null.com','{}','2017-07-29 22:40:36','2017-07-29 22:40:36','af2','al2',1000,NULL,NULL),(7,'email','r3@null.com','$2a$11$LXpNoH1n6.PYOIhgUSgfW.cLlMltzjso0FQn8RCcZ4a1/iNXia1/K',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r3@null.com','{}','2017-07-29 22:40:37','2017-07-29 22:40:37','rf3','rl3',100,NULL,NULL),(8,'email','a3@null.com','$2a$11$AmFbrE/h7rnrVvlTbl92x.ulzfW9OavY5PceAUM8JFtEAfSlgA60a',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a3@null.com','{}','2017-07-29 22:40:37','2017-07-29 22:40:37','af3','al3',1000,NULL,NULL),(9,'email','r4@null.com','$2a$11$jDLDWppRiaHmbrk.aVgYluBmvYPzfyPIckSiuo6dCVGUsfjSJldxK',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r4@null.com','{}','2017-07-29 22:40:37','2017-07-29 22:40:37','rf4','rl4',100,NULL,NULL),(10,'email','a4@null.com','$2a$11$7KNoc5y43UyWsMS8ZfZEQOST0SuSnwtuovmDXUG5DL.PwV1Ntaii6',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a4@null.com','{}','2017-07-29 22:40:37','2017-07-29 22:40:37','af4','al4',1000,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -239,4 +239,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-29 15:31:57
+-- Dump completed on 2017-07-29 16:40:41

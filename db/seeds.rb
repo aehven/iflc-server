@@ -19,6 +19,7 @@ coffee = Cee.create(name: "Coffee", state: 'liquid', source: 'vegetable')
 chocolate = Cee.create(name: "Chocolate", state: 'solid', source: 'vegetable')
 cheese = Cee.create(name: "Cheese", state: 'mush', source: 'animal')
 cervesa = Cee.create(name: "Cervesa", state: 'liquid', source: 'vegetable')
+cake = Cee.create(name: "Cake", state: 'solid', source: 'animal')
 
 coffee.flavors << Flavor.create(name: 'Dark Roast', color: 'Brown')
 coffee.flavors << Flavor.create(name: 'Medium Roast', color: 'Light Brown')
@@ -33,6 +34,10 @@ cheese.flavors << Flavor.create(name: 'Port', color: 'Cream')
 cervesa.flavors << Flavor.create(name: 'Stout', color: 'Black')
 cervesa.flavors << Flavor.create(name: 'English Bitter', color: 'Tan')
 cervesa.flavors << Flavor.create(name: 'Lager', color: 'Light Brown')
+
+cake.flavors << Flavor.create(name: 'Chocolate', color: 'Brown')
+cake.flavors << Flavor.create(name: 'Lemon', color: 'Yellow')
+cake.flavors << Flavor.create(name: 'Vanilla', color: 'White')
 
 
 Cee.all.each do |cee|
