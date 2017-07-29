@@ -20,7 +20,7 @@ class CeesController < ApplicationController
     else
       @cees = @cees.paginate(per_page: params[:per_page], page: params[:page])
       rows = (@cees.map{|a| CeeSerializer.new(a)}).map(&:attributes)
-      render json: {cees: rows, count: @count} and return
+      render json: {cees: rows, count: @count, forms: Cee.forms.keys} and return
     end
   end
 
