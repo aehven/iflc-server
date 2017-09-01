@@ -6,7 +6,7 @@ class FlavorsController < ApplicationController
       @flavors = @flavors.search(params[:search])
     end
 
-    @flavors = @flavors.where("account_id = ?", params[:account_id]) if params[:account_id]
+    @flavors = @flavors.where("cee_id = ?", params[:cee_id]) if params[:cee_id]
 
     @count = @flavors.count
 
