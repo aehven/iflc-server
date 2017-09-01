@@ -15,11 +15,11 @@
 
 end
 
-coffee = Cee.create(name: "Coffee", state: 'liquid', source: 'vegetable')
-chocolate = Cee.create(name: "Chocolate", state: 'solid', source: 'vegetable')
-cheese = Cee.create(name: "Cheese", state: 'mush', source: 'animal')
-cervesa = Cee.create(name: "Cervesa", state: 'liquid', source: 'vegetable')
-cake = Cee.create(name: "Cake", state: 'solid', source: 'animal')
+coffee = Cee.create(name: "Coffee", state: 'liquid', vegetable: true)
+chocolate = Cee.create(name: "Chocolate", state: 'solid', vegetable: true, animal: true)
+cheese = Cee.create(name: "Cheese", state: 'mush', animal: true)
+cervesa = Cee.create(name: "Cervesa", state: 'liquid', vegetable: true)
+cake = Cee.create(name: "Cake", state: 'solid', animal: true, vegetable: true, mineral: true)
 
 coffee.flavors << Flavor.create(name: 'Dark Roast', color: 'Brown')
 coffee.flavors << Flavor.create(name: 'Medium Roast', color: 'Light Brown')

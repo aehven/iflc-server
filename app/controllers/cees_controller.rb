@@ -24,8 +24,7 @@ class CeesController < ApplicationController
         {
           cees: rows,
           count: @count,
-          states: Cee.states.keys,
-          sources: Cee.sources.keys
+          states: Cee.states.keys
         } and return
     end
   end
@@ -62,7 +61,7 @@ class CeesController < ApplicationController
 
   def cee_params
     params.require(:cee).require(:name)
-    params.require(:cee).permit(:name, :state, :source)
+    params.require(:cee).permit(:name, :state, :animal, :vegetable, :mineral)
   end
 
 end

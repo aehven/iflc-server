@@ -37,7 +37,7 @@ CREATE TABLE `ar_internal_metadata` (
 
 LOCK TABLES `ar_internal_metadata` WRITE;
 /*!40000 ALTER TABLE `ar_internal_metadata` DISABLE KEYS */;
-INSERT INTO `ar_internal_metadata` VALUES ('environment','development','2017-07-29 22:40:21','2017-07-29 22:40:21');
+INSERT INTO `ar_internal_metadata` VALUES ('environment','development','2017-09-01 02:31:10','2017-09-01 02:31:10');
 /*!40000 ALTER TABLE `ar_internal_metadata` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,7 +52,9 @@ CREATE TABLE `cees` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
-  `source` int(11) DEFAULT NULL,
+  `animal` tinyint(1) DEFAULT NULL,
+  `vegetable` tinyint(1) DEFAULT NULL,
+  `mineral` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -63,7 +65,7 @@ CREATE TABLE `cees` (
 
 LOCK TABLES `cees` WRITE;
 /*!40000 ALTER TABLE `cees` DISABLE KEYS */;
-INSERT INTO `cees` VALUES (1,'Coffee',200,200),(2,'Chocolate',400,200),(3,'Cheese',300,100),(4,'Cervesa',200,200),(5,'Cake',400,100);
+INSERT INTO `cees` VALUES (1,'Coffee',200,NULL,1,NULL),(2,'Chocolate',400,1,1,NULL),(3,'Cheese',300,1,NULL,NULL),(4,'Cervesa',200,NULL,1,NULL),(5,'Cake',400,1,1,1);
 /*!40000 ALTER TABLE `cees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +152,7 @@ CREATE TABLE `notes` (
 
 LOCK TABLES `notes` WRITE;
 /*!40000 ALTER TABLE `notes` DISABLE KEYS */;
-INSERT INTO `notes` VALUES (1,5,'2017-07-29 22:40:38','note 1 for Cake'),(2,5,'2017-07-29 21:40:38','note 2 for Cake'),(3,5,'2017-07-29 20:40:38','note 3 for Cake'),(4,4,'2017-07-29 22:40:38','note 1 for Cervesa'),(5,4,'2017-07-29 21:40:38','note 2 for Cervesa'),(6,4,'2017-07-29 20:40:38','note 3 for Cervesa'),(7,3,'2017-07-29 22:40:38','note 1 for Cheese'),(8,3,'2017-07-29 21:40:38','note 2 for Cheese'),(9,3,'2017-07-29 20:40:38','note 3 for Cheese'),(10,2,'2017-07-29 22:40:38','note 1 for Chocolate'),(11,2,'2017-07-29 21:40:38','note 2 for Chocolate'),(12,2,'2017-07-29 20:40:38','note 3 for Chocolate'),(13,1,'2017-07-29 22:40:38','note 1 for Coffee'),(14,1,'2017-07-29 21:40:38','note 2 for Coffee'),(15,1,'2017-07-29 20:40:38','note 3 for Coffee');
+INSERT INTO `notes` VALUES (1,5,'2017-09-01 02:31:12','note 1 for Cake'),(2,5,'2017-09-01 01:31:12','note 2 for Cake'),(3,5,'2017-09-01 00:31:12','note 3 for Cake'),(4,4,'2017-09-01 02:31:12','note 1 for Cervesa'),(5,4,'2017-09-01 01:31:12','note 2 for Cervesa'),(6,4,'2017-09-01 00:31:12','note 3 for Cervesa'),(7,3,'2017-09-01 02:31:12','note 1 for Cheese'),(8,3,'2017-09-01 01:31:12','note 2 for Cheese'),(9,3,'2017-09-01 00:31:12','note 3 for Cheese'),(10,2,'2017-09-01 02:31:12','note 1 for Chocolate'),(11,2,'2017-09-01 01:31:12','note 2 for Chocolate'),(12,2,'2017-09-01 00:31:12','note 3 for Chocolate'),(13,1,'2017-09-01 02:31:12','note 1 for Coffee'),(14,1,'2017-09-01 01:31:12','note 2 for Coffee'),(15,1,'2017-09-01 00:31:12','note 3 for Coffee');
 /*!40000 ALTER TABLE `notes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +228,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'email','r0@null.com','$2a$11$4ecv6rg35JrkFpfYT2g6heyj5iOWY9BinZlOtkz5d2eY0sXcgHQq2',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r0@null.com','{}','2017-07-29 22:40:35','2017-07-29 22:40:35','rf0','rl0',100,NULL,NULL),(2,'email','a0@null.com','$2a$11$Q83dgkpe6ODHEA9vqwuX4ubAcB9IpqxYVuCxRCU/wvF9/Q.9OjjLe',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a0@null.com','{}','2017-07-29 22:40:35','2017-07-29 22:40:35','af0','al0',1000,NULL,NULL),(3,'email','r1@null.com','$2a$11$s2ueedGw.aoKFE0E8tHVCOXQuzMo6YsQndEDupoH8Y1RBePDq8lyi',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r1@null.com','{}','2017-07-29 22:40:36','2017-07-29 22:40:36','rf1','rl1',100,NULL,NULL),(4,'email','a1@null.com','$2a$11$zCc8NbIqeumf.WUNnBoCfeOeQRLQdSwDz9fZ4hsX2uOAd774uSxQS',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a1@null.com','{}','2017-07-29 22:40:36','2017-07-29 22:40:36','af1','al1',1000,NULL,NULL),(5,'email','r2@null.com','$2a$11$3zsqDZ3CWoEXlLuNSebg1.slnEvLEN6Ux6dNlKOFTsmDbcHbYxPEm',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r2@null.com','{}','2017-07-29 22:40:36','2017-07-29 22:40:36','rf2','rl2',100,NULL,NULL),(6,'email','a2@null.com','$2a$11$4UkrGRuWl1TXIa6orAkUnezpNcd/oQxSBSZW.vYgdm7oFsacbBDRe',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a2@null.com','{}','2017-07-29 22:40:36','2017-07-29 22:40:36','af2','al2',1000,NULL,NULL),(7,'email','r3@null.com','$2a$11$LXpNoH1n6.PYOIhgUSgfW.cLlMltzjso0FQn8RCcZ4a1/iNXia1/K',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r3@null.com','{}','2017-07-29 22:40:37','2017-07-29 22:40:37','rf3','rl3',100,NULL,NULL),(8,'email','a3@null.com','$2a$11$AmFbrE/h7rnrVvlTbl92x.ulzfW9OavY5PceAUM8JFtEAfSlgA60a',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a3@null.com','{}','2017-07-29 22:40:37','2017-07-29 22:40:37','af3','al3',1000,NULL,NULL),(9,'email','r4@null.com','$2a$11$jDLDWppRiaHmbrk.aVgYluBmvYPzfyPIckSiuo6dCVGUsfjSJldxK',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r4@null.com','{}','2017-07-29 22:40:37','2017-07-29 22:40:37','rf4','rl4',100,NULL,NULL),(10,'email','a4@null.com','$2a$11$7KNoc5y43UyWsMS8ZfZEQOST0SuSnwtuovmDXUG5DL.PwV1Ntaii6',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a4@null.com','{}','2017-07-29 22:40:37','2017-07-29 22:40:37','af4','al4',1000,NULL,NULL);
+INSERT INTO `users` VALUES (1,'email','r0@null.com','$2a$11$2N6nu8mBQJmDZ.Mtt8mz4etGAC8C0hOL.FHwaAjrUA6tqrCslv79S',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r0@null.com','{}','2017-09-01 02:31:11','2017-09-01 02:31:11','rf0','rl0',100,NULL,NULL),(2,'email','a0@null.com','$2a$11$//sPg/w1REmjyDyjMCX2x.1Nu25XEJM2FWdUAaKOIC7hbYWMhMNKW',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a0@null.com','{}','2017-09-01 02:31:11','2017-09-01 02:31:11','af0','al0',1000,NULL,NULL),(3,'email','r1@null.com','$2a$11$cAbd64l1.B3yQ3sJStlCae890t6Ml3ldoUy/zI8Xgw/G2zyfkQyKO',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r1@null.com','{}','2017-09-01 02:31:11','2017-09-01 02:31:11','rf1','rl1',100,NULL,NULL),(4,'email','a1@null.com','$2a$11$2CHYeTMYTOVysr5//Q7bpuIm.UdtFcqGzVaz/KbIyo3Ggf.T9O6rK',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a1@null.com','{}','2017-09-01 02:31:11','2017-09-01 02:31:11','af1','al1',1000,NULL,NULL),(5,'email','r2@null.com','$2a$11$F5QQ8CZf83W09OWApd2NLuyptMCgPnCxfKiM9Eqoj5BjhARWQu76W',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r2@null.com','{}','2017-09-01 02:31:11','2017-09-01 02:31:11','rf2','rl2',100,NULL,NULL),(6,'email','a2@null.com','$2a$11$q4hIrLaJTrP6KhFc36UJ0.XVskifFkVOLUJXWK.RfeGBP7MSNu5rW',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a2@null.com','{}','2017-09-01 02:31:12','2017-09-01 02:31:12','af2','al2',1000,NULL,NULL),(7,'email','r3@null.com','$2a$11$kGkN6SQd9lVk6GXNZ.VTdeYjX63keEusuG7FV/ZUXia0iVbTqHIYm',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r3@null.com','{}','2017-09-01 02:31:12','2017-09-01 02:31:12','rf3','rl3',100,NULL,NULL),(8,'email','a3@null.com','$2a$11$QoisAdrwegpvnW6jrYWuOOaLzSlpHSryx4yi9PLxv0HDJB0djx0te',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a3@null.com','{}','2017-09-01 02:31:12','2017-09-01 02:31:12','af3','al3',1000,NULL,NULL),(9,'email','r4@null.com','$2a$11$HCAr3Vi28r44tBu1DLZbXOuHEtlqSJOtxXEulmJcoyil/JgC1dn/i',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'r4@null.com','{}','2017-09-01 02:31:12','2017-09-01 02:31:12','rf4','rl4',100,NULL,NULL),(10,'email','a4@null.com','$2a$11$UIwkuvyCai79/KIxs90D8uHZPT1QTnnedBrHUj0aJAv4wdcXbiSlS',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a4@null.com','{}','2017-09-01 02:31:12','2017-09-01 02:31:12','af4','al4',1000,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -239,4 +241,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-29 16:40:41
+-- Dump completed on 2017-08-31 20:31:13

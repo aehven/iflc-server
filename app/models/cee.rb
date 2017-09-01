@@ -4,7 +4,9 @@ class CeeSerializer < ActiveModel::Serializer
   attributes :id,
              :name,
              :state,
-             :source
+             :animal,
+             :vegetable,
+             :mineral
 end
 
 class Cee < ApplicationRecord
@@ -16,12 +18,6 @@ class Cee < ApplicationRecord
     solid: 400
   }, _prefix: true
 
-  enum source: {
-    animal: 100,
-    vegetable: 200,
-    mineral: 300
-  }, _prefix: true
-
   has_many :flavors, dependent: :destroy
   has_many :notes, dependent: :destroy
 
@@ -31,22 +27,26 @@ class Cee < ApplicationRecord
   default_scope {order(name: :asc)}
 
   scope :search, -> term {
-    where("name like ? or state like ? or source like ?",
-    "%#{term}%", "%#{term}%", "%#{term}%")
+    where("name like ? or state like ? ",
+    "%#{term}%", "%#{term}%")
   }
 
   def self.to_csv(options = {})
     columns = [
       'name',
       'state',
-      'source'
+      'animal',
+      'vegetable',
+      'mineral'
     ]
 
     CSV.generate(options) do |csv|
       header = [
         'Name',
         'State',
-        'Source'
+        'animal',
+        'vegetable',
+        'mineral'
       ]
 
       csv.add_row(header)
@@ -55,7 +55,9 @@ class Cee < ApplicationRecord
         row = []
         row += [account.name]
         row += [account.state]
-        row += [account.source]
+        row += [account.animal]
+        row += [account.vegetable]
+        row += [account.mineral]
 
         csv.add_row(row)
       end

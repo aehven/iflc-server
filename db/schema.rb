@@ -15,7 +15,9 @@ ActiveRecord::Schema.define(version: 20170208002229) do
   create_table "cees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "name"
     t.integer "state"
-    t.integer "source"
+    t.boolean "animal"
+    t.boolean "vegetable"
+    t.boolean "mineral"
   end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
