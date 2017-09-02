@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function resource {
-  source $SERVER_HOME/setup/webapp.sh
+  source $SERVER_HOME/setup/iflc.sh
 }
 
 function gos {
@@ -239,24 +239,24 @@ function deploy {
 
 function tmuxinit {
   tmux start-server
-  tmux new-session -d -s webapp
-  tmux new-window -t webapp:1 -n mysql
-  tmux new-window -t webapp:2 -n rails-c
-  tmux new-window -t webapp:3 -n rails-server
-  tmux new-window -t webapp:4 -n rails-bash
-  tmux new-window -t webapp:5 -n ng-serve
-  tmux new-window -t webapp:6 -n ng-bash
+  tmux new-session -d -s iflc
+  tmux new-window -t iflc:1 -n mysql
+  tmux new-window -t iflc:2 -n rails-c
+  tmux new-window -t iflc:3 -n rails-server
+  tmux new-window -t iflc:4 -n rails-bash
+  tmux new-window -t iflc:5 -n ng-serve
+  tmux new-window -t iflc:6 -n ng-bash
 
 
-  tmux send-keys -t webapp:1 "webapp; gos; mysql -uaehven -pcypress --database ${BASE_NAME}_develop"
-  tmux send-keys -t webapp:2 "webapp; gos; rails c"
-  tmux send-keys -t webapp:3 "webapp; gos; rails s -b0.0.0.0 -p3000" C-m
-  tmux send-keys -t webapp:4 "webapp; gos" C-m
-  tmux send-keys -t webapp:5 "webapp; goc; ng serve --host 0.0.0.0 --port 4200" C-m
-  tmux send-keys -t webapp:6 "webapp; goc;" C-m
+  tmux send-keys -t iflc:1 "iflc; gos; mysql -uaehven -pcypress --database ${BASE_NAME}_develop"
+  tmux send-keys -t iflc:2 "iflc; gos; rails c"
+  tmux send-keys -t iflc:3 "iflc; gos; rails s -b0.0.0.0 -p3000" C-m
+  tmux send-keys -t iflc:4 "iflc; gos" C-m
+  tmux send-keys -t iflc:5 "iflc; goc; ng serve --host 0.0.0.0 --port 4200" C-m
+  tmux send-keys -t iflc:6 "iflc; goc;" C-m
 
-  tmux select-window -t webapp:5
-  tmux attach-session -t webapp
+  tmux select-window -t iflc:5
+  tmux attach-session -t iflc
 }
 
 function start {
