@@ -6,7 +6,7 @@ gemsets=`rvm gemset list`
 
 if [[ $gemsets != *$g* ]]
   then
-  rvm use $r@imaster --create
+  rvm use $r@wdevelop --create
 else
-  rvm use $r@i$g
+  rvm use $r@w$g
 fi
