@@ -220,7 +220,8 @@ function deploy {
   gos
 
   git branch -D deployment
-  git push origin :deployment
+  # git push origin :deployment
+
   git co -b deployment $BRANCH
 
   #copy built client to server/public
@@ -233,6 +234,9 @@ function deploy {
 
   git push -f $DEPLOY_NAME deployment:master
 
+  git co $BRANCH
+  git branch -D deployment
+  
   heroku run bundle exec rake db:migrate -a$DEPLOY_NAME
   heroku logs --tail -a$DEPLOY_NAME
 }
