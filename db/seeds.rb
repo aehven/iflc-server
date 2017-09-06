@@ -20,6 +20,7 @@ chocolate = Cee.create(name: "Chocolate", state: 'solid', vegetable: true, anima
 cheese = Cee.create(name: "Cheese", state: 'mush', animal: true)
 cervesa = Cee.create(name: "Cervesa", state: 'liquid', vegetable: true)
 cake = Cee.create(name: "Cake", state: 'solid', animal: true, vegetable: true, mineral: true)
+cookies = Cee.create(name: "Cookies", state: 'solid', animal: true, vegetable: true, mineral: true)
 
 coffee.flavors << Flavor.create(name: 'Dark Roast', color: 'Brown')
 coffee.flavors << Flavor.create(name: 'Medium Roast', color: 'Light Brown')
@@ -39,6 +40,9 @@ cake.flavors << Flavor.create(name: 'Chocolate', color: 'Brown')
 cake.flavors << Flavor.create(name: 'Lemon', color: 'Yellow')
 cake.flavors << Flavor.create(name: 'Vanilla', color: 'White')
 
+cookies.flavors << Flavor.create(name: 'Chocolate Chip', color: 'Brown')
+cookies.flavors << Flavor.create(name: 'Lemon', color: 'Yellow')
+cookies.flavors << Flavor.create(name: 'Sugar', color: 'White')
 
 Cee.all.each do |cee|
   3.times do |i|
