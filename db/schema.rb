@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170208002229) do
     t.boolean "animal"
     t.boolean "vegetable"
     t.boolean "mineral"
+    t.binary  "image",     limit: 16777215
   end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

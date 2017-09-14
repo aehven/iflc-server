@@ -6,7 +6,8 @@ class CeeSerializer < ActiveModel::Serializer
              :state,
              :animal,
              :vegetable,
-             :mineral
+             :mineral,
+             :image
 end
 
 class Cee < ApplicationRecord

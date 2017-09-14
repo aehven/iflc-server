@@ -61,7 +61,7 @@ class CeesController < ApplicationController
 
   def cee_params
     params.require(:cee).require(:name)
-    params.require(:cee).permit(:name, :state, :animal, :vegetable, :mineral)
+    params.require(:cee).permit(:name, :state, :animal, :vegetable, :mineral, :image)
   end
 
 end
