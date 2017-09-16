@@ -1,3 +1,14 @@
+# encoding: utf-8
+require "base64"
+
+# upload: data:image/jpeg;base64,/9j/4A...
+
+def seed_image(file_name)
+  meta = "data:image/jpeg;base64,"
+  contents = File.read(File.join(Rails.root, "/db/seed_images/#{file_name}"), encoding: "utf-8")
+  (meta + Base64.encode64(contents)).gsub("\n","") #don't know why those newlines are being inserted, but we have to get rid of them
+end
+
 5.times do |i|
   User.create(email: "r#{i}@null.com",
               first_name: "rf#{i}",
@@ -15,12 +26,12 @@
 
 end
 
-coffee = Cee.create(name: "Coffee", state: 'liquid', vegetable: true)
-chocolate = Cee.create(name: "Chocolate", state: 'solid', vegetable: true, animal: true)
-cheese = Cee.create(name: "Cheese", state: 'mush', animal: true)
-cervesa = Cee.create(name: "Cervesa", state: 'liquid', vegetable: true)
-cake = Cee.create(name: "Cake", state: 'solid', animal: true, vegetable: true, mineral: true)
-cookies = Cee.create(name: "Cookies", state: 'solid', animal: true, vegetable: true, mineral: true)
+coffee = Cee.create(name: "Coffee", state: 'liquid', vegetable: true, image: seed_image("background-coffee.jpg"))
+chocolate = Cee.create(name: "Chocolate", state: 'solid', vegetable: true, animal: true, image: seed_image("background-chocolate.jpg"))
+cheese = Cee.create(name: "Cheese", state: 'mush', animal: true, image: seed_image("background-cheese.jpg"))
+cervesa = Cee.create(name: "Cervesa", state: 'liquid', vegetable: true, image: seed_image("background-cervesa.jpg"))
+cake = Cee.create(name: "Cake", state: 'solid', animal: true, vegetable: true, mineral: true, image: seed_image("background-cake.jpg"))
+cookies = Cee.create(name: "Cookies", state: 'solid', animal: true, vegetable: true, mineral: true, image: seed_image("background-cookies.jpg"))
 
 coffee.flavors << Flavor.create(name: 'Dark Roast', color: 'Brown')
 coffee.flavors << Flavor.create(name: 'Medium Roast', color: 'Light Brown')
