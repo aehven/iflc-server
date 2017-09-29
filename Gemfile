@@ -30,6 +30,13 @@ gem 'active_model_serializers'
 gem 'omniauth'
 gem 'devise_token_auth'
 gem 'will_paginate'
+gem 'figaro'
+
+# for google cloud storage of images
+gem 'carrierwave'
+gem "fog-google"
+gem "google-api-client", "> 0.8.5", "< 0.9"
+gem "mime-types"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

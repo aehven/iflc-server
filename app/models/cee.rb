@@ -7,10 +7,11 @@ class CeeSerializer < ActiveModel::Serializer
              :animal,
              :vegetable,
              :mineral,
-             :image
+             :image_url
 end
 
 class Cee < ApplicationRecord
+  mount_uploader :image, CeeImageUploader
 
   enum state: {
     gas: 100,

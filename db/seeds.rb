@@ -1,12 +1,14 @@
 # encoding: utf-8
-require "base64"
 
-# upload: data:image/jpeg;base64,/9j/4A...
+# require "base64"
+# def seed_image(file_name)
+#   meta = "data:image/jpeg;base64,"
+#   contents = File.read(File.join(Rails.root, "/db/seed_images/#{file_name}"), encoding: "utf-8")
+#   (meta + Base64.encode64(contents)).gsub("\n","") #don't know why those newlines are being inserted, but we have to get rid of them
+# end
 
 def seed_image(file_name)
-  meta = "data:image/jpeg;base64,"
-  contents = File.read(File.join(Rails.root, "/db/seed_images/#{file_name}"), encoding: "utf-8")
-  (meta + Base64.encode64(contents)).gsub("\n","") #don't know why those newlines are being inserted, but we have to get rid of them
+  file_name
 end
 
 5.times do |i|
