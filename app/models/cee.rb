@@ -9,11 +9,11 @@ class CeeSerializer < ActiveModel::Serializer
              :mineral,
              :image_url
 
-  def image_url
-    #image_url has too many slashes, so squeeze them out, but then fix the
-    #https:// which does need two of them.
-    object.image_url.squeeze("/").gsub("https:/s", "https://s")
-  end
+  # def image_url
+  #   #image_url has too many slashes, so squeeze them out, but then fix the
+  #   #https:// which does need two of them.
+  #   object.image_url.squeeze("/").gsub("https:/s", "https://s")
+  # end
 end
 
 class Cee < ApplicationRecord
