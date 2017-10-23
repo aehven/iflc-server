@@ -29,7 +29,7 @@ end
 coffee = Cee.create(name: "Coffee", state: 'liquid', vegetable: true, image: seed_image("background-coffee.jpg"))
 chocolate = Cee.create(name: "Chocolate", state: 'solid', vegetable: true, animal: true, image: seed_image("background-chocolate.jpg"))
 cheese = Cee.create(name: "Cheese", state: 'mush', animal: true, image: seed_image("background-cheese.jpg"))
-cervesa = Cee.create(name: "Cervesa", state: 'liquid', vegetable: true, image: seed_image("background-cervesa.jpg"))
+cervesa = Cee.create(name: "Cerveza", state: 'liquid', vegetable: true, image: seed_image("background-cerveza.jpg"))
 cake = Cee.create(name: "Cake", state: 'solid', animal: true, vegetable: true, mineral: true, image: seed_image("background-cake.jpg"))
 cookies = Cee.create(name: "Cookies", state: 'solid', animal: true, vegetable: true, mineral: true, image: seed_image("background-cookies.jpg"))
 
