@@ -7,6 +7,7 @@ class CeeSerializer < ActiveModel::Serializer
              :animal,
              :vegetable,
              :mineral,
+             :image,
              :image_url
 
   # def image_url
