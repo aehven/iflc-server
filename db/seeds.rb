@@ -29,7 +29,7 @@ end
 coffee = Cee.create(name: "Coffee", state: 'liquid', vegetable: true, image: seed_image("background-coffee.jpg"))
 chocolate = Cee.create(name: "Chocolate", state: 'solid', vegetable: true, animal: true, image: seed_image("background-chocolate.jpg"))
 cheese = Cee.create(name: "Cheese", state: 'mush', animal: true, image: seed_image("background-cheese.jpg"))
-cervesa = Cee.create(name: "Cerveza", state: 'liquid', vegetable: true, image: seed_image("background-cerveza.jpg"))
+cerveza = Cee.create(name: "Cerveza", state: 'liquid', vegetable: true, image: seed_image("background-cerveza.jpg"))
 cake = Cee.create(name: "Cake", state: 'solid', animal: true, vegetable: true, mineral: true, image: seed_image("background-cake.jpg"))
 cookies = Cee.create(name: "Cookies", state: 'solid', animal: true, vegetable: true, mineral: true, image: seed_image("background-cookies.jpg"))
 
@@ -43,9 +43,9 @@ cheese.flavors << Flavor.create(name: 'Cream', color: 'White')
 cheese.flavors << Flavor.create(name: 'Brie', color: 'White')
 cheese.flavors << Flavor.create(name: 'Port', color: 'Cream')
 
-cervesa.flavors << Flavor.create(name: 'Stout', color: 'Black')
-cervesa.flavors << Flavor.create(name: 'English Bitter', color: 'Tan')
-cervesa.flavors << Flavor.create(name: 'Lager', color: 'Light Brown')
+cerveza.flavors << Flavor.create(name: 'Stout', color: 'Black')
+cerveza.flavors << Flavor.create(name: 'English Bitter', color: 'Tan')
+cerveza.flavors << Flavor.create(name: 'Lager', color: 'Light Brown')
 
 cake.flavors << Flavor.create(name: 'Chocolate', color: 'Brown')
 cake.flavors << Flavor.create(name: 'Lemon', color: 'Yellow')
