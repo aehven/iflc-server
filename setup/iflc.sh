@@ -220,7 +220,7 @@ function deploy {
   gos
 
   git branch -D deployment
-  # git push origin :deployment
+  git push origin :deployment
 
   git co -b deployment $BRANCH
 
@@ -236,7 +236,7 @@ function deploy {
 
   git co $BRANCH
   git branch -D deployment
-  
+
   heroku run bundle exec rake db:migrate -a$DEPLOY_NAME
   heroku logs --tail -a$DEPLOY_NAME
 }
